@@ -2,8 +2,7 @@ package pagesobject;
 
 import core.WebApi;
 import io.qameta.allure.Step;
-import microservices.models.listmodels.FolderResponseList;
-import microservices.models.spacemodels.SpaceResponse;
+
 import models.SpaceModel;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -198,13 +197,6 @@ public class NavigationPage extends WebApi {
         return this;
     }
 
-    @Step("verify space list displayed correctly")
-    public NavigationPage verifySpaceListDisplayedCorrectly(List<SpaceResponse> spaceResponses, List<SpaceModel> spaceModels){
-        for (int i = 0; i < spaceModels.size(); i++) {
-            Assert.assertEquals(spaceResponses.get(i).getName(), spaceModels.get(i).getName());
-        }
-        return this;
-    }
     @Step("verify next button is disabled")
     public NavigationPage verifyNextButtonIsDisable(){
         Assert.assertFalse(isControlEnabled(nextBtn));
